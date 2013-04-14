@@ -14,7 +14,7 @@ By default you will need to pass the following 3 fields ( query, start_date, end
 * end_date : 12-01-2011
 
 query field is the keyword string used to conduct your search.
-start_date and end_date will filter down your results by dates.
+start_date and end_date will filter down your results by recall dates.
 
 Please Note that the date format for start_date and end_date is MM-DD-YYYY
 

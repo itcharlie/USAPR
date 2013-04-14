@@ -4,12 +4,12 @@ use strict;
 use URI;
 use LWP::UserAgent;
 use Data::Dumper;
-
-
-my $API_URL = "http://search.usa.gov/search/recalls"; 
+use constant API_URL => "http://search.usa.gov/search/recalls"; 
 
 # TODO: make query, start_date, and end_date required fields
 # and error out if these fields don't exists.
+
+# TODO: support sort, page, per_page fields to api call
 sub new {
     my  $class = shift;
     my  $self = shift;
@@ -24,7 +24,7 @@ sub new {
 sub fetch_recalls {
     my $self = shift;
     
-    my $url = URI->new($API_URL);
+    my $url = URI->new(API_URL);
     $url->query_form( 
         format => 'json',
         query  => $self->{query} || '',

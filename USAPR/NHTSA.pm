@@ -5,7 +5,7 @@ use parent 'USAPR';
 
 use Data::Dumper;
 
-
+# TODO: Add make, model, year, and code fields.
 sub new {
     my $class = shift;
     my $self = shift;
