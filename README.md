@@ -8,15 +8,26 @@ Perl API client that will allow you to fetch product recall data in json format 
 
 ## How to use these modules?
 
-This will output a json data structure from NHTSA based on the following criteria:
+By default you will need to pass the following 3 fields ( query, start_date, end_date)
+* query : engine
+* start_date : 12-01-2010
+* end_date : 12-01-2011
 
-* keyword : engine
-* start date : 12-01-2010
-* end date : 12-01-2011
+query field is the keyword string used to conduct your search.
+start_date and end_date will filter down your results by dates.
+
+Please Note that the date format for start_date and end_date is MM-DD-YYYY
+
+This sample code below will output a json data structure from NHTSA.
 
 ```perl
 use USAPR::NHTSA;
 
-my $usapr = USAPR::NHTSA->('engine','12-01-2010','12-01-2011');
+my $usapr  =  USAPR::NHTSA->new({
+    query => 'engine',
+    start_date => '12-01-2010',
+    end_date => '12-01-2011',
+});
+
 print $usapr->fetch_recalls();
 ```

@@ -7,15 +7,15 @@ use Data::Dumper;
 
 
 sub new {
-   my $class = shift;
-   return $class->SUPER::new(@_);
+    my $class = shift;
+    return $class->SUPER::new(@_);
 
 };
 
 
 
 sub organization {
-   return "CDC";
+    return "CDC";
 };
 
 1;

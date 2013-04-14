@@ -8,14 +8,14 @@ use Data::Dumper;
 
 my $API_URL = "http://search.usa.gov/search/recalls"; 
 
+# TODO: make query, start_date, and end_date required fields
+# and error out if these fields don't exists.
 sub new {
-   my  $class = shift;
-   my  $self = {
-        query  => shift || '',
-        start_date => shift || '',
-        end_date => shift || '',
-        organization => $class->organization || '',
-    };
+    my  $class = shift;
+    my  $self = shift;
+    
+    $self->{organization} = $class->organization || '';
+    
     bless($self, $class);
     return $self
 };
@@ -23,7 +23,7 @@ sub new {
 
 sub fetch_recalls {
     my $self = shift;
-
+    
     my $url = URI->new($API_URL);
     $url->query_form( 
         format => 'json',
